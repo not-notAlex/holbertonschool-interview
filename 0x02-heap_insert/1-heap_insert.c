@@ -9,7 +9,7 @@
 heap_t *heap_insert(heap_t **root, int value)
 {
     heap_t *node, *tar;
-    int max, temp;
+    int max = 0, temp = 0;
 
     node = malloc(sizeof(heap_t));
     if (node == NULL)
@@ -73,8 +73,6 @@ heap_t *find_node(heap_t *root, int depth, int max)
     if (root->left != NULL && root->right == NULL)
         return (root);
     if (root->left == NULL && depth != max)
-        return (root);
-    if (root->left == NULL && depth == max)
         return (root);
     
     l = find_node(root->left, depth + 1, max);
