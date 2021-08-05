@@ -11,7 +11,7 @@ heap_t *heap_insert(heap_t **root, int value)
     heap_t *node, *tar;
     int max = 0, temp = 0;
 
-    node = malloc(sizeof(heap_t));
+    node = binary_tree_node(NULL, value);
     if (node == NULL)
         return (NULL);
     node->n = value;
