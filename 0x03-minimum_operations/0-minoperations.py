@@ -27,6 +27,9 @@ def minOperations(n):
             c = c / i
             prime_factors.append(i)
             i = 3
+            if c == 2:
+                prime_factors.append(2)
+            continue
         if c == 2:
             prime_factors.append(2)
         i = i + 2
