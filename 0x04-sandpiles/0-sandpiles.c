@@ -2,27 +2,36 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * print_grid - Print 3x3 grid
+ * @grid: 3x3 grid
+ *
+ */
 static void print_grid(int grid[3][3])
 {
-    int i, j;
+	int i, j;
 
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            if (j)
-                printf(" ");
-            printf("%d", grid[i][j]);
-        }
-        printf("\n");
-    }
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
 }
 
-void sandpiles_sum(int grid1[3][3], int grid2[3][3])
+/**
+ * add_grids - adds two sandpiles together
+ * @grid1: first sandpile
+ * @grid2: second sandpile
+ * Return: if the grid overflows
+ */
+int add_grids(int grid1[3][3], int grid2[3][3])
 {
-	int x, y, hasChanged = 0, hasPrinted = 0, i = 0;
-	int newX, newY;
-	int changes[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int x, y, hasChanged = 0;
 
 	for (x = 0; x < 3; x++)
 		for (y = 0; y < 3; y++)
@@ -32,6 +41,21 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 				hasChanged = 1;
 		}
 
+	return (hasChanged);
+}
+
+/**
+ * sandpiles_sum - adds two sandpiles together
+ * @grid1: first grid
+ * @grid2: second grid
+ * Return: no return
+ */
+void sandpiles_sum(int grid1[3][3], int grid2[3][3])
+{
+	int x, y, hasChanged, hasPrinted = 0, i = 0, newX, newY;
+	int changes[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+	hasChanged = add_grids(grid1, grid2);
 	while (hasChanged)
 	{
 		i = 0;
@@ -51,9 +75,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 					hasChanged = 1;
 				}
 		for (x = 0; x < 9; x++)
-		{
 			if (changes[x])
-		        {
+			{
 				newX = x / 3;
 				newY = x % 3;
 				grid1[newX][newY] -= 4;
@@ -67,6 +90,5 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 					grid1[newX][newY + 1] += 1;
 				changes[x] = 0;
 			}
-		}
 	}
 }
