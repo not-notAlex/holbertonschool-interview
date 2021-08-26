@@ -10,28 +10,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = *head, *back = *head;
-	int len = 0, i = 0, x, end = 0;
+	return (is_palindrome_recursive(head, *head));
+}
 
-	while (tmp)
-	{
-		len++;
-		tmp = tmp->next;
-	}
-	if (len < 2)
+/**
+ * is_palindrome_recursive - determines if list is palindrome
+ * @left: current left node
+ * @right: current right node
+ * Return: 0 if false 1 if true
+ */
+int is_palindrome_recursive(listint_t **left, listint_t *right)
+{
+	int result1, result2;
+
+	if (right == NULL)
 		return (1);
-	while (i < (len / 2))
-	{
-		tmp = *head;
-		back = *head;
-		for (x = 0; x < len - end - 1; x++)
-			tmp = tmp->next;
-		for (x = 0; x < end; x++)
-			back = back->next;
-		if (tmp->n != back->n)
-			return (0);
-		end++;
-		i++;
-	}
-	return (1);
+	result1 = is_palindrome_recursive(left, right->next);
+	if (result1 == 0)
+		return (0);
+	if (right->n == (*left)->n)
+		result2 = 1;
+	else
+		result2 = 0;
+	*left = (*left)->next;
+	return (result2);
 }
