@@ -7,10 +7,13 @@ from sys import stdin
 
 if __name__ == "__main__":
     total = 0
-    codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
+    codes = {"200": 0, "301": 0, "400": 0,
+             "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
     try:
         for count, line in enumerate(stdin):
             args = line.split(" ")
+            if len(args) != 9:
+                continue
             if args[-2] in codes:
                 codes[args[-2]] += 1
             total += int(args[-1])
