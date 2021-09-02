@@ -12,6 +12,8 @@ if __name__ == "__main__":
     try:
         for count, line in enumerate(stdin):
             args = line.split(" ")
+            if len(args < 2):
+                continue
             if args[-2] in codes:
                 codes[args[-2]] += 1
             try:
