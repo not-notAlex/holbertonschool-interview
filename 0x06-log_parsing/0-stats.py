@@ -12,11 +12,12 @@ if __name__ == "__main__":
     try:
         for count, line in enumerate(stdin):
             args = line.split(" ")
-            if len(args) != 9:
-                continue
             if args[-2] in codes:
                 codes[args[-2]] += 1
-            total += int(args[-1])
+            try:
+                total += int(args[-1])
+            except:
+                pass
             if (count + 1) % 10 == 0:
                 print("File size: {}".format(total))
                 for status in sorted(codes.keys()):
