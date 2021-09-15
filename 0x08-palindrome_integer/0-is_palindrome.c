@@ -29,7 +29,7 @@ int is_palindrome(unsigned long n)
 		if ((i % 10) != ((i / t) % 10))
 			return (0);
 		x++;
-		t /= 10;
+		t /= 100;
 		i /= 10;
 	}
 	return (1);
