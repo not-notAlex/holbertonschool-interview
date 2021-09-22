@@ -25,7 +25,10 @@ def validUTF8(data):
         while(j < nbytes):
             mask1 = 1 << 7
             mask2 = 1 << 6
-            if not (data[i] & mask1 and not (data[i] & mask2)):
+            try:
+                if not (data[i] & mask1 and not (data[i] & mask2)):
+                    return False
+            except:
                 return False
             i += 1
             j += 1
