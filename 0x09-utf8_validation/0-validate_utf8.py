@@ -6,7 +6,7 @@ module for UTF-8 Validation
 
 def validUTF8(data):
     """
-    determines if list is UTF-8 valid
+    determines if list of bytes is UTF-8 valid
     """
     i = 0
     while(i < len(data)):
@@ -22,6 +22,8 @@ def validUTF8(data):
             return False
         j = 1
         i += 1
+        if nbytes > 4:
+            return False
         while(j < nbytes):
             mask1 = 1 << 7
             mask2 = 1 << 6
