@@ -22,8 +22,6 @@ def validUTF8(data):
             return False
         j = 1
         i += 1
-        if j == 1:
-            return False
         while(j < nbytes):
             mask1 = 1 << 7
             mask2 = 1 << 6
