@@ -60,7 +60,8 @@ int slide_line_left(int *line, size_t size)
  */
 int slide_line_right(int *line, size_t size)
 {
-	long int i, x, merge = 0;
+	long int i, merge = 0;
+	size_t x;
 
 	for (i = size - 2; i >= 0; i--)
 	{
