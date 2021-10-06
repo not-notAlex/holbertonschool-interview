@@ -1,5 +1,12 @@
 #include "menger.h"
 
+
+/**
+ * menger - draws a 2D menger sponge
+ * @level: the size of the cube
+ *
+ * Return: no return
+ */
 void menger(int level)
 {
 	int x, y, sides = 3, p, z;
@@ -9,6 +16,8 @@ void menger(int level)
 		printf("#\n");
 		return;
 	}
+	if (level < 0)
+		return;
 	for (x = 1; x < level; x++)
 		sides *= 3;
 	for (x = 0; x < sides; x++)
