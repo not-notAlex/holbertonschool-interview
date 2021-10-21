@@ -3,7 +3,7 @@
 module for task
 """
 
-from sys import argv
+import sys
 grid = []
 results = []
 
@@ -61,11 +61,11 @@ if __name__ == "__main__":
     """
     main function
     """
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print("Usage: nqueens N")
         exit(1)
     try:
-        n = int(argv[1])
+        n = int(sys.argv[1])
     except Exception as e:
         print("N must be a number")
         exit(1)
