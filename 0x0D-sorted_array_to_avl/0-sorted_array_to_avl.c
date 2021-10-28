@@ -20,6 +20,14 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	return (tree);
 }
 
+/**
+ * add_nodes - adds nodes from array to avl tree
+ * @array: list of sorted values to insert
+ * @size: size of the array
+ * @tree: tree to insert into
+ * @add_left: 1 if adding value to left of tree or 0 if right
+ * Return: 0 if passed -1 if failed
+ */
 int add_nodes(int *array, size_t size, avl_t **tree, int add_left)
 {
 	size_t halfway = (size - 1) / 2;
