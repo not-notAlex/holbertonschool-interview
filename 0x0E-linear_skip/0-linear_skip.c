@@ -24,6 +24,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		}
 		if (x->express == NULL)
 		{
+			i = x;
 			while (x->next)
 				x = x->next;
 			break;
