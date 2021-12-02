@@ -16,9 +16,8 @@ int advanced_binary(int *array, size_t size, int value)
 }
 
 /**
- * name - description
+ * binary - recursive binary search
  * @array: array to search
- * @size: size of array
  * @value: value to search
  * @l: left index
  * @r: right index
