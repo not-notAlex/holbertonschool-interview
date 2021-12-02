@@ -28,6 +28,8 @@ int binary(int *array, int value, size_t l, size_t r)
 	unsigned int x;
 	int half = ((r + l) / 2);
 
+	if (l > r)
+		return (-1);
 	printf("Searching in array: ");
 	for (x = l; x <= r; x++)
 	{
@@ -37,11 +39,13 @@ int binary(int *array, int value, size_t l, size_t r)
 	}
 	printf("\n");
 	if (array[half] == value)
+	{
+		if (array[half - 1] == value)
+			return (binary(array, value, l, half));
 		return (half);
-	if (l == r)
-		return (-1);
+	}
 	if (array[half] >= value)
-		return (binary(array, value, l, half - 1));
+		return (binary(array, value, l, half));
 	else
 		return (binary(array, value, half + 1, r));
 }
