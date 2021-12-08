@@ -43,6 +43,6 @@ def count_words(subreddit, word_list, after="", word_count={}):
                             dict_sorted[i+1] = tmp
         for w in dict_sorted:
             if w[1] > 0:
-                print("{}: {}".format(w[0], w[1]))
+                print("{}: {}".format(w[0].lower(), w[1]))
     else:
         count_words(subreddit, word_list, after, word_count)
