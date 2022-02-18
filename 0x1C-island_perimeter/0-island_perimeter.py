@@ -3,6 +3,7 @@
 module for task 0
 """
 
+
 def island_perimeter(grid):
     """
     returns the perimeter of the island in grid
